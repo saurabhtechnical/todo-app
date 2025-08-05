@@ -43,7 +43,8 @@ const Dashboard = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/todos');
+      // const response = await axios.get('http://localhost:5000/api/todos');
+      const response = await axios.get('https://backend-m1mf.onrender.com/api/todos'); 
       setTodos(response.data);
     } catch (error) {
       setError('Failed to fetch todos');
@@ -56,7 +57,7 @@ const Dashboard = () => {
     if (!newTodoName.trim()) return;
 
     try {
-      const response = await axios.post('http://localhost:5000/api/todos', {
+      const response = await axios.post('https://backend-m1mf.onrender.com/api/todos', {
         name: newTodoName
       });
       setTodos([response.data, ...todos]);
@@ -69,7 +70,7 @@ const Dashboard = () => {
 
   const handleDeleteTodo = async (todoId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/todos/${todoId}`);
+      await axios.delete(`https://backend-m1mf.onrender.com/api/todos/${todoId}`);
       setTodos(todos.filter(todo => todo._id !== todoId));
     } catch (error) {
       setError('Failed to delete todo');

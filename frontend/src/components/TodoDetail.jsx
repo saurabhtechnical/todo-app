@@ -39,7 +39,7 @@ const TodoDetail = () => {
 
   const fetchTodo = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/todos/${id}`);
+      const response = await axios.get(`https://backend-m1mf.onrender.com/api/todos/${id}`);
       setTodo(response.data);
     } catch (error) {
       setError('Failed to fetch todo');
@@ -52,7 +52,7 @@ const TodoDetail = () => {
     if (!newItemText.trim()) return;
 
     try {
-      const response = await axios.post(`http://localhost:5000/api/todos/${id}/items`, {
+      const response = await axios.post(`https://backend-m1mf.onrender.com/api/todos/${id}/items`, {
         text: newItemText
       });
       setTodo(response.data);
@@ -64,7 +64,7 @@ const TodoDetail = () => {
 
   const handleToggleItem = async (itemId, completed) => {
     try {
-      const response = await axios.put(`http://localhost:5000/api/todos/${id}/items/${itemId}`, {
+      const response = await axios.put(`https://backend-m1mf.onrender.com/api/todos/${id}/items/${itemId}`, {
         completed: !completed
       });
       setTodo(response.data);
@@ -75,7 +75,7 @@ const TodoDetail = () => {
 
   const handleDeleteItem = async (itemId) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/todos/${id}/items/${itemId}`);
+      const response = await axios.delete(`https://backend-m1mf.onrender.com/api/todos/${id}/items/${itemId}`);
       setTodo(response.data);
     } catch (error) {
       setError('Failed to delete item');
